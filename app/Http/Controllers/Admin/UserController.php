@@ -14,4 +14,13 @@ class UserController extends Controller
         $users = User::all();
         return $users;
     }
+
+    public function store()
+    {
+       return $user = User::create([
+        'name' => request('name'),
+        'email' => request('email'),
+        'password' => bcrypt(request('password')),
+       ]);
+    }
 }
